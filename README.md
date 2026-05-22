@@ -23,7 +23,7 @@ brew install runapi-ai/tap/runapi
 **Go source build (Go 1.22+):**
 
 ```bash
-go install github.com/runapi-ai/cli@latest
+go install github.com/runapi-ai/cli/cmd/runapi@latest
 ```
 
 **Or paste this prompt to your AI agent** (Claude Code, Codex, Gemini CLI, OpenClaw, Hermes):

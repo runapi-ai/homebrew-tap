@@ -2,11 +2,41 @@ name: CI
 
 on:
   push:
+    branches: [main, "runapi-ci/**"]
+    tags: ["v*", "*/v*"]
   pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    shell: bash
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   formula:
-    runs-on: ubuntu-latest
+    name: Formula ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
     steps:
-      - uses: actions/checkout@v4
-      - run: ruby -c Formula/runapi.rb
+      - name: Checkout
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+        with:
+          persist-credentials: false
+      - name: Set up Homebrew
+        uses: Homebrew/actions/setup-homebrew@df4b09108a1de9d6f995fe68f302b3f68bd6d2ef # master
+      - name: Check formula syntax
+        run: ruby -c Formula/runapi.rb
+      - name: Install formula
+        run: brew install runapi-ai/tap/runapi
+      - name: Test formula
+        run: brew test runapi-ai/tap/runapi

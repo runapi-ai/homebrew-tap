@@ -1,26 +1,26 @@
 class Runapi < Formula
   desc "RunAPI command-line client"
   homepage "https://runapi.ai"
-  version "0.8.0"
+  version "0.8.1"
   license "Apache-2.0"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/runapi-ai/cli/releases/download/v0.8.0/runapi_0.8.0_Darwin_arm64.tar.gz"
-      sha256 "1614c7fe43af16becb03a28b2341b0e612d7dd0fc48ea2048a26f2987bc44b27"
+      url "https://github.com/runapi-ai/cli/releases/download/v0.8.1/runapi_0.8.1_Darwin_arm64.tar.gz"
+      sha256 "afbdde7dc37ed0e6fb0b080d788162810091c77baae6cc2499b7a3b297c7af11"
     else
-      url "https://github.com/runapi-ai/cli/releases/download/v0.8.0/runapi_0.8.0_Darwin_x86_64.tar.gz"
-      sha256 "b569e1bd442f268b31b26419f0ab182919dce75167ea111c5ccc774341da227b"
+      url "https://github.com/runapi-ai/cli/releases/download/v0.8.1/runapi_0.8.1_Darwin_x86_64.tar.gz"
+      sha256 "2881df96d24f22f5488bf76af6367c346ebcb9c63f7ea969b55b569af077200b"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/runapi-ai/cli/releases/download/v0.8.0/runapi_0.8.0_Linux_arm64.tar.gz"
-      sha256 "310f4df95ad74e4a72933d04377ce1c6047d2e7495a0c3a00314a6c2239b0be1"
+      url "https://github.com/runapi-ai/cli/releases/download/v0.8.1/runapi_0.8.1_Linux_arm64.tar.gz"
+      sha256 "bd14f670151016d586dfae8b53a294b3352db0f6d7aaccc6c20e5a4693802809"
     else
-      url "https://github.com/runapi-ai/cli/releases/download/v0.8.0/runapi_0.8.0_Linux_x86_64.tar.gz"
-      sha256 "543bac0d9efcb4ebc7b96198cb534987b51757b9b0bdd3612574a54692ab28e0"
+      url "https://github.com/runapi-ai/cli/releases/download/v0.8.1/runapi_0.8.1_Linux_x86_64.tar.gz"
+      sha256 "4f141a1877fda3c465cf475ba1c51e957e98080a78a2710e959c58c3cbda1728"
     end
   end
 
@@ -29,6 +29,6 @@ class Runapi < Formula
   end
 
   test do
-    assert_match "\"version\":\"0.8.0\"", shell_output("#{bin}/runapi version")
+    assert_match "\"version\":\"0.8.1\"", shell_output("#{bin}/runapi version")
   end
 end

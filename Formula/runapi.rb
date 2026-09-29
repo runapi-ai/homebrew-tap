@@ -1,26 +1,26 @@
 class Runapi < Formula
   desc "RunAPI command-line client"
   homepage "https://runapi.ai"
-  version "0.13.4"
+  version "0.14.1"
   license "Apache-2.0"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/runapi-ai/cli/releases/download/v0.13.4/runapi_0.13.4_Darwin_arm64.tar.gz"
-      sha256 "a291d796645677e466f08abfc33552b34fa6b45687d42ff2d4449956ac42e514"
+      url "https://github.com/runapi-ai/cli/releases/download/v0.14.1/runapi_0.14.1_Darwin_arm64.tar.gz"
+      sha256 "1d71f551967aaf874f1d8aa16ad4a628732a5078e160506899752008ab6686a1"
     else
-      url "https://github.com/runapi-ai/cli/releases/download/v0.13.4/runapi_0.13.4_Darwin_x86_64.tar.gz"
-      sha256 "7a188bc2aab5240c1baa33702e96981cdce7a17da3315d71745d0c22c54484ef"
+      url "https://github.com/runapi-ai/cli/releases/download/v0.14.1/runapi_0.14.1_Darwin_x86_64.tar.gz"
+      sha256 "0513a62d9f97725af8c122e8e3f4ccf027183327070a405c5e9a0c7d48f5e773"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/runapi-ai/cli/releases/download/v0.13.4/runapi_0.13.4_Linux_arm64.tar.gz"
-      sha256 "77b1ff448b579d77ebb9212c6dfdee8212164699d6dab87435205a332fba3fbf"
+      url "https://github.com/runapi-ai/cli/releases/download/v0.14.1/runapi_0.14.1_Linux_arm64.tar.gz"
+      sha256 "f3d2a40f402df765ec35597d33450b8c99e76659c36f92ff5a10deb31021ddea"
     else
-      url "https://github.com/runapi-ai/cli/releases/download/v0.13.4/runapi_0.13.4_Linux_x86_64.tar.gz"
-      sha256 "ebdaffce184f22a9090d673ce10b6c18436046a598873b58010641641a96d57a"
+      url "https://github.com/runapi-ai/cli/releases/download/v0.14.1/runapi_0.14.1_Linux_x86_64.tar.gz"
+      sha256 "7ea5721a763f401afb44536275cb690d20810592c8fd3f0efe3aac9546f261c8"
     end
   end
 
@@ -29,6 +29,6 @@ class Runapi < Formula
   end
 
   test do
-    assert_match "\"version\":\"0.13.4\"", shell_output("#{bin}/runapi version")
+    assert_match "\"version\":\"0.14.1\"", shell_output("#{bin}/runapi version")
   end
 end
